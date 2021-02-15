@@ -1,0 +1,89 @@
+/*--- FONT FAMILY ---*/
+@font-face {
+    font-family : "CranberryBlues";
+    src : url("../assets/fonts/cranberry_blues/CranberryBlues.ttf"); /*ttf=TrueType*/
+}
+@font-face { /*Effet Peinture*/
+    font-family : "LionKing";
+    src : url("../assets/fonts/lion_king/lion_king.ttf"); 
+}
+@font-face { 
+    font-family : "Breadcrumbs";
+    src : url("../assets/fonts/breadcrumbs/Breadcrumbs.otf"); /*otf=OpenType*/
+}
+@font-face { 
+    font-family : "Bretageds";
+    src : url("../assets/fonts/bretageds/Bretageds.otf");
+}
+@font-face { 
+    font-family : "Hallington";
+    src : url("../assets/fonts/hallington/Hallington.ttf");
+}
+
+/* ----- */
+
+html {
+    background-image: linear-gradient(#f0bb60e8 , #4aa484e5); 
+    /*linear-gradient(rgba(196, 219, 240, 0.5), rgba(85, 159, 228, 1))*/
+    /*#f0bb60e8 , #4aa484e5 */
+}
+h1 {
+    font-family: "LionKing";
+    border : 2px ridge orange;
+    color : black;
+    text-align:center;
+
+    /*ombre*/
+	-webkit-box-shadow: 0 0 3px rgba(0,0,0, 0.4);
+	-moz-box-shadow: 0 0 3px rgba(0,0,0, 0.4);
+	box-shadow: 0 0 3px rgba(0,0,0, 0.4);
+}
+
+#myCanvas {
+    border: 1px solid black;
+    background-image: url("../assets/images/GreenForestNight.png");
+    /*background-color : lightgrey;*/
+     /*ombre*/
+	-webkit-box-shadow: 0 0 3px rgba(133,75,34, 0.4);
+	-moz-box-shadow: 0 0 3px rgba(133,75,34, 0.4);
+	box-shadow: 3px -2px 5px rgba(133, 75, 34, 0.4);
+}
+
+#loadingPage {
+    color:red;
+    /*border: 1px dashed red;*/
+}
+
+div.infosJeu {
+    font-family: Lobster, Monotype Corsiva, Raleway;
+        /* Raleway, Gill sans MT,  Gabriola, Freestyle Script,*/
+    font-size: 110%;
+	/*text-align:center;*/
+}
+
+/*-- BUTTON --*/
+#buttonArrow, #buttonMouse {
+    font-family:Segoe UI;
+    font-size:100%;
+    padding:1px 1px 3px;
+    background: #FFCB60;   /*rgba(247, 196, 29, 0.782)*/
+    border: 1px ridge rgb(99, 77, 4);
+     /*ombre*/
+	-webkit-box-shadow: 0 0 3px rgba(133,75,34, 0.4); 
+	-moz-box-shadow: 0 0 3px rgba(133,75,34, 0.4);
+    box-shadow: 3px -2px 5px rgba(133, 75, 34, 0.4);
+}
+#buttonArrow {border-radius: 20%; background:rgba(174, 145, 82, 0.782);}
+#buttonMouse {border-radius: 10px}
+
+.prgp1 {
+    color:rgb(15, 83, 56);
+}
+.prgp2 {
+    text-align: center;
+    border:2px dashed rgb(231, 79, 79);
+}
+
+body.page2, span.link {
+    font-family: "Gill Sans MT", "Calibri"; 
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+		<title>Squelette Jeu JS/Done&DoList</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="./css/styles.css">
+		<!-- Javascript -->
+		
+    </head>
+    <body class="page2">
+        <h1>Done & DoList</h1>
+        <span><a href="index.html">Retour Page Jeu version Beta</a></span>
+
+        <section class="doList">
+          <h2>Liste A Faire</h2>
+          <div class="priority">
+            <h3>Priorités :</h3>
+            <ul>
+              <li>Nombre de points augmente plus la balle est petite et rapide (coefficient)</li>
+              <li>1000 points pour gagner(fleche) / (2000 souris) </li>
+              <li>Faire un monstre correct & proportionnel</li>
+              <li>Faire un menu informatif lorsque le bouton pause est actif + etatJeu="Pause"</li>
+              <li>Nombre de points pour une balle dépend de la proportion du nbr_balle_verte/nbr_balle_rouge</li>
+              <li>Remplacer balle par image/spritesheet</li>
+              <li>Rajouter du son pour chaque etatdeJEU</li>
+              <li>Changer fond d'ecran en fonction du niveau</li>
+              <li>Rajouter boule noir (boss?) qui enleve des vies lors d'un contact à partir du niveau 20 (puis disparait ???)</li>
+            </ul>
+          </div>
+
+          <div class="idea">
+            <h3>Autres idées :</h3>
+            <ul>
+              <li>Eviter que le monstre sorte du canvas avec le mouvement de recul provoquer par la collision avec la balle chercheuse
+                <br> (voir quand monstre se trouve sur les extrémités du canvas et recule de sa taille)
+              </li>
+              <li>Choisir par une checkbox si le clavier est Fleche et ZQSD (AZERTY) ou QWSD (QWERTY)</li>
+              <li>utilisation d'un timer dans les niveaux supérieurs ???</li>
+              <li>Création d'item à récuper dans un coin du canvas (en bas à droite)
+                <br> Différents objets pour gagner des vies, devenir, invincibles, invisibles, etc 
+                <br> A utiliser avec les chiffres en fonction de l'objet que l'on veut utiliser ou le bouton "G" ou "I"
+
+              </li>
+              <li>Réalisation de bonus accessible dans le jeu</li>
+            </ul>
+          </div>
+
+          <p>---------------</p>
+        </section>
+
+        <section class="done">
+          <h2>Réalisé</h2>
+          <div>
+            <ul>
+              <li>Les balles ont une taille aléatoire de minimum 4 (pour être visible) à 26</li>
+              <li>Affichage des scores et des vies en couleur</li>
+              <li>Possibilité de changer d'état de Jeu (Start, GameOver, Restart, ect) en cliquant dans le canvas ou en utilisant la barre Espace</li>
+              <li>Monstre revient en x=0; y=monstre.hautr à chaque debut de partie</li>
+              <li>Les balles partent du côté droit pour ne pas toucher le monstre dès le debut</li>
+              <li>La BalleChercheuse commence en bas à droite à chaque début de niveau pour ne pas percuter le monstre dès le début</li>
+              <li>Message sur la page en cas d'erreur du chargement du jeu liée à un probleme Internet</li>
+              <li> Réalisation de deux boutons en dehirs du canvas, pour choisir la façon de déplacer le monstrer
+                <br> - En mode "Clavier", possibilité de bouger le monstre avec les flèches du clavier ou les touches ZQSD (en majuscule ou minuscule);
+                  <br> ==> Dans cette situation, le monstre rebondit sur les balles rouges et un peu sur la balleChercheuse (qui retourne à sa postion d'origine en cas de contact)
+                <br> - En mode "Souris &/OU Clavier", possibilité de bouger le monstre comme pour le mode "Clavier" mais le monstre se déplacera également avec les mouvements de la souris dans le canvas;
+                <br><br>
+              </li>
+              <li>Possibilité de faire PLAY/PAUSE dans le jeu, en appuyant sur la touche P (aucun élément du canvas ne peut se déplacer en mode PAUSE) :
+                <br> 1. Peu importe le moyen, le monstre ne peut plus se déplacer,
+                <br> 2. Les balles s'arrêtent (puis reprennent la même trajectoire & la même vitesse qu'auparavant,
+                <br> 3. La balle Chercheuse arrête de bouger et reprend sa course si l'on sort de l'état PAUSE,
+                <br> Bonus : Possibilité de débloquer la fonction "Restart" en mode PAUSE
+                <br> <br>
+              </li>
+
+              <li>La balleChercheuse revient à sa position d'origine lorsqu'elle entre en contact avec le monstre
+                <br> - permet d'obtenir un contact unique avec le monstre (idée initiale = utilisation d'un timer mais n'a pas fonctionné)
+              </li>
+              <li>Affichage du score dans le canvas</li>
+              <li>(BOUTON RESTART) Lorsque le jeu est en pause, si on appuye sur le boutton "r"/"R" le Jeu recommence à zéro </li>
+              <li>A partir du niveau 15, le monstre peut toucher une seule fois la balle chercheuse, par niveau, sans perdre de vie</li>
+              <li>BalleChercheuse devient couleur "givrée" avec gradient lorsque l'on est en pause</li>
+              <li>Tous les 5 niveaux, on gagne une vie</li>
+              <li>Affichage du texte "Press 'R' to Restart" mais uniquement lorsque le jeu est en pause</li>
+            </ul>
+          </div>
+
+          <p>---------------</p>
+        </section>
+
+        <section class="resolve">
+          <h2>Quelques Problèmes Résolus</h2>
+          <div>
+            <ul>
+              <li>Problème sur le restart (couleur de balleChercheuse reste à bleu) --> Resolu (avec function gameRestart)</li>
+              <li>Après un restart le nombre de boule créer devrait etre de 4 pas de 2 --> Resolu avec la variable "restart"</li>
+              <li>...</li>
+            </ul>
+          </div>
+        </section>
+
+	</body>
+</html>

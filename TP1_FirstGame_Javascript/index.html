@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+	<head>
+		<title>Squelette Jeu JS</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="./css/styles.css">
+		<!-- Javascript -->
+		<script src="./js/script.js"></script>
+		<script src="./js/monster.js"></script>
+		<script src="./js/balleJS/balle.js"></script>
+		<script src="./js/balleJS/balleVtssXY.js"></script>
+		<script src="./js/balleJS/balleVitssAngle.js"></script>
+		<script src="./js/balleJS/balleChercheuse.js"></script>
+		<script src="./js/mouseArrow.js"></script>
+		<script src="./js/playPause.js"></script>
+		<script src="./js/collisions.js"></script>
+		<script src="./js/obstacleImage.js"></script>
+		<script src="./js/affichageGame.js"></script>
+		<script src="./js/timer.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/1.1.28/howler.min.js"></script> <!-- howler/2.2.1/howler.min.js-->
+		<script src="./js/assets.js"></script>
+	</head>
+	<body>
+		<h1>Premier JEU En JS / ESTIA-MBDS 2021</h1>
+		<canvas width=600 height=500 id="myCanvas"></canvas>
+		<div class="infosJeu">
+			<span id="loadingPage">Erreur dans le chargement du Jeu !! (ATTENTION : Connexion Internet Nécessaire !) </span>
+			<br>
+			<!-- BUTTON -->
+			<p class="prgp1">Choisit comment déplacer ton monstre : </p>
+			<button id="buttonArrow" onclick="buttonArrow()">Clavier</button>
+			<button id="buttonMouse" onclick="buttonMouse()">Souris &/OU Clavier</button>
+			
+			<p class="prgp1">(Clavier = Flèche ou ZQSD; Souris = le monstre suit les mouvments du pointeur)</p>
+			<p class="prgp2">Appuyer sur "P" pour faire PLAY/PAUSE; puis "R" pour recommencer !!!</p>
+			<br>
+			Balles Rouges = -1 point/contact; Balles vertes = +10 points; 
+			<br>BalleChercheuse = -40 points & -1 vie (droit à un contact sans perdre de vie à partir du niveau 15);
+			<br>
+			Score : <span id="score">0</span>
+			<br>
+			Vie(s) : <span id="vie">6</span>
+			<br>
+			Niveau : <span id="niveau">1</span>
+		</div>
+		<span class="link"><a href="done&DoList.html">Done & DoList</a></span>
+
+
+
+	</body>
+	<footer>
+
+	</footer>
+	
+</html>
