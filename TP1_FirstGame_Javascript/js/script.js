@@ -22,7 +22,6 @@ let balleChercheuse;
 let assets;
 let nbBouleAManger;
 let firstContact=0;
-let restart=0;
 let grd; //gradient
 let colorPause="transparent";  //=#FF4500;
 
@@ -78,8 +77,11 @@ function startGame(assetsLoaded) {
    ctx = canvas.getContext("2d");
 
    //gradient pour la balleChercheuse givrée en mode pause
-   grd = ctx.createLinearGradient(0,0,canvas.width,canvas.height);
+   
+   grd = ctx.createLinearGradient(0,0,canvas.width, canvas.height/2);
    grd.addColorStop(0, "rgba(196, 219, 240, 1)");
+   grd.addColorStop(0.33, "rgba(85, 159, 228, 1)");
+   grd.addColorStop(0.66, "rgba(196, 219, 240, 1)");
    grd.addColorStop(1, "rgba(85, 159, 228, 1)");
 
    //Affichage dans la console du message de la methode donneTonNom
@@ -108,7 +110,8 @@ function animationLoop() {
         case "JeuEnCours":
             updateJeu();
             break;
-        case "EcranChangementNiveau":
+        case "ChangementNiveau":
+            scoreColor(score);
             afficheEcranChangementNiveau();
             break;
         case "Pause" :
@@ -119,7 +122,7 @@ function animationLoop() {
         case "GameOver":
             tableauDesBalles =[];
             niveau = 1;
-            creerDesBalles(niveau+3)
+            creerDesBalles(niveau+nbBallSupp)
             afficheEcranGameOver();
             break;
         case "Restart" :
@@ -138,6 +141,8 @@ function updateJeu() {
     monstre.draw(ctx);
     updateBalles(); //dessin, collision & deplacement des balles
 
+    
+
     //3 on deplace les objets
     monstre.move();
 
@@ -155,13 +160,29 @@ function updateJeu() {
     }
   
     if (niveauFini()) {
-      etatJeu = "EcranChangementNiveau";
+        scoreNiveau(niveau);
+        etatJeu = "ChangementNiveau";
     }
+}
+function updateBalles() {
+    //utilisation d'un iterateur sur le tableau
+    tableauDesBalles.forEach ((b) => {
+        b.draw(ctx);
+        traiteCollisionsBordBALLES(b);
+        traitecollisionBalleAvecMonstre(b);
+        //avant de commencer à refaire bouger les boules, on vérifie :
+        if (vies <=0) { etatJeu ="GameOver"}
+        b.move();
+    });
 }
 
 function niveauSuivant() {
     //console.log("NIVEAU SUIVANT");
     niveau++;
+
+    //permet de changer le fond d'ecran en fct des niveaux
+    //levelBackground(niveau);
+
     //Tous les 5 niveaux une vie supplémentaire est donnée au joueur
     if (niveau%5===0 && niveau!=0) { vies++; }
     vieColor(vies);
@@ -176,33 +197,15 @@ function niveauSuivant() {
     
     tableauDesBalles.splice(0, tableauDesBalles.length);
     
-    if (restart ===1 ){
-        //on recommence au debut avec le bon nombre de balles
-        creerDesBalles(niveau + nbBallSupp); 
-        restart=0;
-    } else {
-        creerDesBalles(niveau + 1);
-    }
+    creerDesBalles(niveau + nbBallSupp);
+
     etatJeu = "JeuEnCours";
 }
-
 //si longueur du tableauDesBalles est nul, niveauFini = true;
 function niveauFini() {
-    console.log("reste"+nbBouleAManger);
+    //console.log("reste "+ nbBouleAManger+" nbBouleAManger");
     return nbBouleAManger === 0; //tableauDesBalles.length === 3
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

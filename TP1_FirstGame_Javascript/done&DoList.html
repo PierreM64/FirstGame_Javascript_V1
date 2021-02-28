@@ -17,13 +17,13 @@
             <h3>Priorités :</h3>
             <ul>
               <li>Nombre de points augmente plus la balle est petite et rapide (coefficient)</li>
-              <li>1000 points pour gagner(fleche) / (2000 souris) </li>
+              <li>1000 points pour gagner(fleche) / (2000 souris) OU Dépasser niveau 50 ?</li>
               <li>Faire un monstre correct & proportionnel</li>
               <li>Faire un menu informatif lorsque le bouton pause est actif + etatJeu="Pause"</li>
               <li>Nombre de points pour une balle dépend de la proportion du nbr_balle_verte/nbr_balle_rouge</li>
               <li>Remplacer balle par image/spritesheet</li>
               <li>Rajouter du son pour chaque etatdeJEU</li>
-              <li>Changer fond d'ecran en fonction du niveau</li>
+              <li>Changer fond d'ecran tous les 10 niveaux jusqu'au niveau 50 ou en fonction des modes de Jeu</li>
               <li>Rajouter boule noir (boss?) qui enleve des vies lors d'un contact à partir du niveau 20 (puis disparait ???)</li>
             </ul>
           </div>
@@ -32,16 +32,38 @@
             <h3>Autres idées :</h3>
             <ul>
               <li>Eviter que le monstre sorte du canvas avec le mouvement de recul provoquer par la collision avec la balle chercheuse
-                <br> (voir quand monstre se trouve sur les extrémités du canvas et recule de sa taille)
+                <br> (Voir quand monstre se trouve sur les extrémités du canvas et recule de sa taille)
               </li>
               <li>Choisir par une checkbox si le clavier est Fleche et ZQSD (AZERTY) ou QWSD (QWERTY)</li>
-              <li>utilisation d'un timer dans les niveaux supérieurs ???</li>
-              <li>Création d'item à récuper dans un coin du canvas (en bas à droite)
-                <br> Différents objets pour gagner des vies, devenir, invincibles, invisibles, etc 
-                <br> A utiliser avec les chiffres en fonction de l'objet que l'on veut utiliser ou le bouton "G" ou "I"
-
+              <li>Utilisation d'un timer dans les niveaux supérieurs ???</li>
+              <li>Création d'item à récuper dans un coin du canvas (en bas à droite) avec différentes probabilités d'obtention :
+                <br> - Différents objets :
+                  <br> _ _ 1. Gain de vies, 
+                  <br> _ _ 2. Gain de points, 
+                  <br> _ _ 3. Invincibilité, 
+                  <br> _ _ 4. Invisibilité, 
+                  <br> _ _ 5. Glacon Freeze ennemi,
+                  <br> _ _ 6. Doubleur de score pour un niveau,
+                  
+                <br> - A utiliser avec les chiffres en fonction de l'objet que l'on veut utiliser ou le bouton "G" ou "I" ou "E"
+                <br> <br>
               </li>
-              <li>Réalisation de bonus accessible dans le jeu</li>
+
+              <li>Réalisation de niveau bonus accessible dans le jeu  :
+                <br>  1. 
+                <br>  2. 
+                <br> <br>
+              </li>
+
+              <li>Création de différents mode de Jeu :
+                <br>  1. Facile
+                <br>  2. Normal
+                <br>  3. Hard : prédominance de boules rouges, "boss" plus dur & balleChercheuse plus rapide
+                <br>  4. Infernal : début avec une seule vie et situation adapté mais difficile
+                <br> <br>
+              </li>
+              <li>Le nombre de boules, leurs tailles et leur rapidité devra dépendre de la taille de l'écran</li>
+              <li>Changement du thème de couleur en même temps que le backgroundImage ???</li>
             </ul>
           </div>
 
@@ -53,6 +75,7 @@
           <div>
             <ul>
               <li>Les balles ont une taille aléatoire de minimum 4 (pour être visible) à 26</li>
+              <li>Création d'au moins un balleAManger dans la création aléatoire</li>
               <li>Affichage des scores et des vies en couleur</li>
               <li>Possibilité de changer d'état de Jeu (Start, GameOver, Restart, ect) en cliquant dans le canvas ou en utilisant la barre Espace</li>
               <li>Monstre revient en x=0; y=monstre.hautr à chaque debut de partie</li>
@@ -82,6 +105,21 @@
               <li>BalleChercheuse devient couleur "givrée" avec gradient lorsque l'on est en pause</li>
               <li>Tous les 5 niveaux, on gagne une vie</li>
               <li>Affichage du texte "Press 'R' to Restart" mais uniquement lorsque le jeu est en pause</li>
+              <li>Chaque niveau fini donne des points supplémentaires ("POINTS DE NIVEAU") :
+                <br> - du niveu 1 à 10, +5 points par niveau terminé
+                <br> - du niveu 10 à 20, +10 points par niveau terminé
+                <br> - du niveu 20 à 30, +15 points par niveau terminé
+                <br> - du niveu 30 à 40, +20 points par niveau terminé
+                <br> - du niveu 40 à 49, +30 points par niveau terminé
+                <br> - à partir du niveau 50, +50 points par niveau terminé 
+                <br> <br>
+              </li>
+              <li>Perte d'une vie si le joueur obtient un score négatif de -100 points ou plus (il est ensuite incrémenter de 100 points supplémentaires pour ce sacrifice)</li>
+              <li>Maintenir le bouton "B"  avant un mouvement au clavier permet de déclencher de déclencher un booster qui double/tripler la vitesse de déplacement</li>
+              <li>Le backgroundImage change en fonction du niveau atteint (MAIS DESACTIVER POUR LE MOMENT= utile quand les boules seront des personnages sinon pas esthéthique):
+                <br> Voyage commence dand la montagne puis au fil des niveaux le jour passe et les paysages changent quelque peu jusqu'au niveau 50 représentant le niveau critique.
+              </li>
+
             </ul>
           </div>
 
@@ -89,14 +127,26 @@
         </section>
 
         <section class="resolve">
-          <h2>Quelques Problèmes Résolus</h2>
+          <h2>Quelques Problèmes Rencontrés</h2>
           <div>
             <ul>
               <li>Problème sur le restart (couleur de balleChercheuse reste à bleu) --> Resolu (avec function gameRestart)</li>
-              <li>Après un restart le nombre de boule créer devrait etre de 4 pas de 2 --> Resolu avec la variable "restart"</li>
+              <li>Problème des vies pouvant devenir négatif lors d'un game over --> Résolu</li>
+              <li>Problème d'affichage & d'update du score à la fin de chaque niveau ("points de niveau" non comptabilisé) --> Résolu </li>
+              <li>Problème du joueur pouvant être expulsé par la balleChercheuse quand il se situe sur les extrémités bord du jeu  --> En cours
+                <br> (Si monstre OUT au pire il retourne a sa position d'initiale dans le canvas ???)
+              </li>
+              <li>Le changement ne background ne fonctionne plus après la deuxième midification de celui-ci ... --> Résolu (switch case ne supportait pas deux comparaison de grandeur par etat)</li>
               <li>...</li>
             </ul>
           </div>
+        </section>
+
+        <section>
+          <h2>Scénario Idées</h2>
+          <p>Giselle la petite chèvre à perdu son chemin, aide là à retrouver son foyer ! 
+            <br>Mais attention ! Sur le chemin elle va avoir besoin de se nourrir et d'esquiver les loups, les fantomes et le Chasseur (balleChercheuse) qui la tracke !
+          </p>
         </section>
 
 	</body>

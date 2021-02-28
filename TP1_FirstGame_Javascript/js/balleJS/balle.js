@@ -121,13 +121,3 @@ function traiteCollisionsBordBALLES(b) {
     }
 }
 
-function updateBalles() {
-    //utilisation d'un iterateur sur le tableau
-    tableauDesBalles.forEach ((b) => {
-        b.draw(ctx);
-        traiteCollisionsBordBALLES(b);
-        traitecollisionBalleAvecMonstre(b);
-        if (vies <=0) { etatJeu ="GameOver"}
-        b.move();
-    });
-}

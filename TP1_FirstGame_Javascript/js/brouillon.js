@@ -124,12 +124,9 @@ function traitecollisionBalleAvecMonstre(b) {
 
 /* ------------------------- */
 
-function afficheScore() {
-    ctx.save();
-    ctx.fillStyle = "black";
-    ctx.font = "20pt Calibri";
-    ctx.fillText("Niveau " + level, 10, 20);
-    ctx.fillText("Score :  " + score, 10, 45);
-    ctx.fillText("Vies :  " + life, 10, 70);
-    ctx.restore();
+function changeBackground(bElement, bUrl) {
+    return (bElement.style.backgroundImage = "url("+bUrl+")");
 }
+
+
+

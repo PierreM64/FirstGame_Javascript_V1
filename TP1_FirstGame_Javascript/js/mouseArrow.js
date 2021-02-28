@@ -2,6 +2,7 @@ let mousePos = {};
 let buttnMouse=0;
 let buttnArrow=1;
 let buttnPlay=1;
+let booster =1;
 
 function traiteMouseDown(event) {
     console.log("Souris clickée dans le canvas " + event.button);
@@ -16,22 +17,15 @@ function traiteMouseDown(event) {
             break;
         case "JeuEnCours" :
             break;
-        case "EcranChangementNiveau":
+        case "ChangementNiveau":
             niveauSuivant();
             etatJeu = "JeuEnCours";
             break;
         case "GameOver" :
-            vies =vieMax;
-            etatJeu = "JeuEnCours";
-            spanNiveau.innerHTML= "<b>1</b>";
+            eventGameOver();
             break;
         case "Restart" :
-            buttnPlay=1;
-            vies=vieMax;
-            score=0;
-            etatJeu ="JeuEnCours";
-            niveau=0;
-            niveauSuivant();
+            eventRestart();
             break;
     }
 
@@ -79,46 +73,39 @@ function traiteKeyDown(event) {
                 //-> changer les lettres WASD pour clavier QWERTY
             case "q":
             case "Q":   //Au cas ou majuscule est activé par innavertance
-                monstre.vitesseX = -5;
+                monstre.vitesseX = -5*booster;
                 break;
             case "d":
             case "D":
-                monstre.vitesseX = 5;
+                monstre.vitesseX = 5*booster;
                 break;
             case "z":
             case "Z":
-                monstre.vitesseY = -5;
+                monstre.vitesseY = -5*booster;
                 break;
             case "s":
             case "S":
-                monstre.vitesseY = 5;
+                monstre.vitesseY = 5*booster;
                 break;
         }
     }
     switch (event.key) {
         //Déclenchement du GAME
         case " ":
+        case "s":
+        case "S":
             switch (etatJeu) {
                 case "MenuPrincipal":
                     etatJeu ="JeuEnCours";
                     break;
-                case "EcranChangementNiveau":
+                case "ChangementNiveau":
                     niveauSuivant();
                     break;
                 case "GameOver" :
-                    //niveauSuivant();
-                    vies =vieMax;
-                    etatJeu = "JeuEnCours";
-                    spanNiveau.innerHTML= "<b>1</b>";
+                    eventGameOver();
                     break;
                 case "Restart" :
-                    buttnPlay=1;
-                    vies=vieMax;
-                    score=0;
-                    etatJeu ="JeuEnCours";
-                    spanNiveau.innerHTML= "<b>1</b>";
-                    niveau=0;
-                    niveauSuivant();
+                    eventRestart();
                     break;
             }
             break;
@@ -152,6 +139,10 @@ function traiteKeyDown(event) {
                 etatJeu = "Restart";
             }
             break;
+        case "b" :
+        case "B" :
+            booster=2;
+            break;
     }
 }
 function traiteKeyUp(event) {
@@ -173,6 +164,10 @@ function traiteKeyUp(event) {
         case "S":
             monstre.vitesseY = 0;
             break;
+        case "b" :
+        case "B" :
+            booster=1;
+            break;
     }
 }
 
@@ -180,7 +175,7 @@ function buttonMouse() {
     buttnArrow=0;
     buttnMouse=1;
     document.getElementById('buttonMouse').style.background="rgba(174, 145, 82, 0.782)";  
-    document.getElementById('buttonArrow').style.background="#FFCB60";  ///rgba(247, 196, 29, 0.782)  
+    document.getElementById('buttonArrow').style.background="#FFCB60";  ///rgba(247, 196, 29, 0.782) 
 }
 
 function buttonArrow() {
@@ -188,4 +183,26 @@ function buttonArrow() {
     buttnArrow=1;
     document.getElementById('buttonArrow').style.background="rgba(174, 145, 82, 0.782)";    //btn enfoncé
     document.getElementById('buttonMouse').style.background="#FFCB60";                  //btn relevé
+}
+
+//-- EVENT FUNCTION --//
+function eventGameOver() {
+    vies =vieMax;
+    score=0;
+    etatJeu = "JeuEnCours";
+    spanNiveau.innerHTML= "<b>1</b>";
+    niveau=0;
+    niveauSuivant();
+}
+function eventRestart() {
+    buttnPlay=1;
+    eventGameOver();
+    /*
+    vies=vieMax;
+    score=0;
+    etatJeu ="JeuEnCours";
+    //spanNiveau.innerHTML= "<b>1</b>";
+    niveau=0;
+    niveauSuivant();
+    */
 }

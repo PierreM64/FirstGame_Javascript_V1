@@ -42,6 +42,9 @@ h1 {
 #myCanvas {
     border: 1px solid black;
     background-image: url("../assets/images/GreenForestNight.png");
+    /* ../assets/images/GreenForestNight.png */
+    /* ../assets/images/background/BlueMountainsresize.jpg */
+
     /*background-color : lightgrey;*/
      /*ombre*/
 	-webkit-box-shadow: 0 0 3px rgba(133,75,34, 0.4);

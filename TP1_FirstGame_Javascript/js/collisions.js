@@ -52,14 +52,21 @@ function traitecollisionBalleAvecMonstre(b) {
                 */
 
             score-=40;
-            scoreColor(score);
+            //tous les -100 pts, le joueur perd une vie et remonte de 100 pts
+            badLoseLife();
+            
             //A partir du niveau 15, la bouleChercheuse peut etre en contact une première fois
             //sans enlever de vie 
             if (niveau < 15 || firstContact>=1) {
                 vies--;
-                vieColor(vies);
+                //vieColor(vies);
             }
+            scoreColor(score);
+            vieColor(vies);
             firstContact++;
+
+            
+        
         }
 
         //on cherche l'index de la balle dans le tableau des balles
@@ -71,7 +78,9 @@ function traitecollisionBalleAvecMonstre(b) {
             monstre.vitesseX = - monstre.vitesseX*1.2;
             monstre.vitesseY = - monstre.vitesseY*1.2;
             score -=1;
+            badLoseLife();
             scoreColor(score);
+            vieColor(vies);
         }
 
         if (b.couleur == "seagreen" ) { //si bouleAManger
@@ -86,54 +95,10 @@ function traitecollisionBalleAvecMonstre(b) {
     }
 }
 
-//Affichage du score & couleur en fonction de celui-ci
-function scoreColor(score) {
-    if (score<0) {
-        spanScore.innerHTML= "<b style='color:red'>"+ score + "</b>";
-    } else if (score>0){
-        spanScore.innerHTML= "<b style='color:green'>"+ score + "</b>";
-    } else {
-        spanScore.innerHTML= "<i style='color:orange'>"+ score + "</i>";
-    }
-}
-function vieColor(vies) {
-    /*
-    if (vies>=5) {  
-        spanVie.innerHTML= "<b style='color:green'>"+ vies + "</b>";
-    } else if (vies<=2){
-        spanVie.innerHTML= "<b style='color:red'>"+ vies + "</b>";
-    } 
-    else {
-        spanVie.innerHTML= "<i style='color:orange'>"+ vies + "</i>";
-    }*/
-
-    switch (true) { //vieMax=6;
-        case (7>vies>=5) :
-            spanVie.innerHTML= "<b style='color:green'>"+ vies + "</b>";
-            break;
-        case (vies<=2) :
-            spanVie.innerHTML= "<b style='color:red'>"+ vies + "</b>";
-            break;
-        case (10>vies>=7) :
-            spanVie.innerHTML= "<b style='color:blue'>"+ vies + "</b>";
-            break;
-        case (vies>=10) : 
-            spanVie.innerHTML= "<b style='color:purple'>"+ vies + "</b>";
-            break;
-        case (2<vies<5) :
-            spanVie.innerHTML= "<b style='color:orange'>"+ vies + "</b>";
-    }
-    
-}
-
+/* non utilisé
 function finCollisBalleChercheuse(b) {
     return (circRectsOverlap(monstre.x, monstre.y, monstre.larg, monstre.hautr, b.x, b.y, b.rayon) === false);
-}
-
-
-
-
-
+}*/
 
 
 

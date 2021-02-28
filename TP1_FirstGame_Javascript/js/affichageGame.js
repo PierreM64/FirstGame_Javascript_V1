@@ -55,7 +55,7 @@ function afficheMenuPrincipal() {
     //Susbtitle (START)
     ctx.font ="15pt Lobster";
     ctx.textAlign = "center";
-    ctx.fillText("(Click or Spacebar to Start )", canvas.width/2, canvas.height/8 +35);
+    ctx.fillText("(Click, Spacebar or S to Start )", canvas.width/2, canvas.height/8 +35);
 
     ctx.restore();
 }
@@ -85,7 +85,7 @@ function afficheEcranChangementNiveau() {
     //Substitle (NEXT LEVEL)
     ctx.font ="20pt Lobster";
     ctx.textAlign = "center";
-    ctx.fillText("(Click or Spacebar to Next Level)", canvas.width/2, canvas.height/4 +35);
+    ctx.fillText("(Click, Spacebar or S to Next Level)", canvas.width/2, canvas.height/4 +35);
     ctx.restore();
 }
 function afficheEcranGameOver() {
@@ -113,7 +113,7 @@ function afficheEcranGameOver() {
     //Substitle (GAMEOVER)
     ctx.font ="20pt Lobster";
     ctx.textAlign = "center";
-    ctx.fillText("(Click or spacebar to reStart)", canvas.width/2, canvas.height/4 +35);
+    ctx.fillText("(Click, Spacebar or S to reStart)", canvas.width/2, canvas.height/4 +35);
     ctx.restore();
 }
 function afficheEcranPause() {
@@ -142,7 +142,7 @@ function afficheEcranRestart() {
     //Susbtitle (START)
     ctx.font ="15pt Lobster";
     ctx.textAlign = "center";
-    ctx.fillText("(Click or Spacebar to ReStart)", canvas.width/2, canvas.height/8 +35);
+    ctx.fillText("(Click, Spacebar or S to reStart)", canvas.width/2, canvas.height/8 +35);
 
     ctx.restore();
 }

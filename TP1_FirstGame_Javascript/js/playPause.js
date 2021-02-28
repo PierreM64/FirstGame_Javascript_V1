@@ -42,6 +42,4 @@ function gamePlay() {
 function gameRestart() {
     tableauDesVitessesX.splice(0, tableauDesVitessesX.length);
     tableauDesVitessesY.splice(0, tableauDesVitessesY.length);
-
-    restart=1;
 }
