@@ -1,0 +1,51 @@
+/*---CSS DE LA PAGE done&DoList.html ---*/ 
+
+/*-*-*PARTIE Details/Summary *-*-*/
+details {
+	display:block; 
+    width:90%;
+}
+summary {
+	display:block;
+    font-size:120%;
+	background:transparent;
+	color:black;
+    border:1px ridge black;
+	border-radius:5px;
+	padding:5px;
+	/*cursor:pointer;*/
+    font-weight:bold;
+    margin-bottom:15px;
+}
+summary::-webkit-details-marker {
+   color:#FFCB60; 
+   background:transparent;
+}
+details[open] summary::-webkit-details-marker {
+   color:#FFCB60; 
+   background:transparent;
+}
+summary::-webkit-details-marker {
+    /*pour enlever la fleche*/
+    /*display: none;*/  
+}
+/*pour changer l'apparence de la flèche */
+summary:after {
+   content: "+";
+   color: #FFCB60;
+   float: right;
+   font-size: 1em;
+   font-weight: bold;
+   text-align: center;
+   width: 20px;
+}
+details[open] summary:after {
+   content: "-";
+   color: #FFCB60;
+}
+details li {
+    margin-left:25px;
+}
+details li:last-child {
+    margin-bottom:15px;
+}
